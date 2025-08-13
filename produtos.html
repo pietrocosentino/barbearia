@@ -3,15 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Produtos - Barbearia</title>
+        <title>Produtos - DIFARIA style shapes</title>
 
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style-agendamento.css">
     </head>
     <body>
         <header>
             <div class="caixa">
-                <h1><img src="logo.png" alt="Logo da Barbearia"></h1>
+                <h1><img src="logo.png" alt="Logo da DIFARIA style shapes"></h1>
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -22,6 +23,8 @@
             </div>
         </header>
 
+        <img id="banner" src="header-tools.jpg" alt="Tesoura e navalha de barbearia" class="header-banner">
+
         <main>
             <ul class="produtos">
                 <li>
@@ -29,37 +32,103 @@
                     <img src="cabelo.jpg" alt="Corte de cabelo">
                     <p class="produto-descricao">Na tesoura ou na máquina</p>
                     <p class="produto-preco">R$40,00</p>
+                    <button class="btn-agendar" data-servico="Corte" data-preco="40,00">Agendar Agora</button>
                 </li>
                 <li>
                     <h2>Barba</h2>
                     <img src="barba.jpg" alt="Barboterapia">
                     <p class="produto-descricao">Barboterapia</p>
                     <p class="produto-preco">R$40,00</p>
+                    <button class="btn-agendar" data-servico="Barba" data-preco="40,00">Agendar Agora</button>
                 </li>
                 <li>
                     <h2>Corte + Barba</h2>
                     <img src="cabelo+barba.jpg" alt="Pacote cabelo e barba">
                     <p class="produto-descricao">Pacote cabelo e barba</p>
                     <p class="produto-preco">R$70,00</p>
+                    <button class="btn-agendar" data-servico="Corte + Barba" data-preco="70,00">Agendar Agora</button>
                 </li>
                 <li>
                     <h2>Sobrancelha</h2>
                     <img src="cabelo.jpg" alt="Sobrancelha na navalha">
                     <p class="produto-descricao">Na navalha</p>
                     <p class="produto-preco">R$7,00</p>
+                    <button class="btn-agendar" data-servico="Sobrancelha" data-preco="7,00">Agendar Agora</button>
                 </li>
                 <li>
                     <h2>Corte + Barba + Sobrancelha</h2>
                     <img src="cabelo+barba.jpg" alt="Pacote completo: corte, barba e sobrancelha">
                     <p class="produto-descricao">Pacote completo</p>
                     <p class="produto-preco">R$85,00</p>
+                    <button class="btn-agendar" data-servico="Corte + Barba + Sobrancelha" data-preco="85,00">Agendar Agora</button>
                 </li>
             </ul>
         </main>
 
+        <!-- Modal de Agendamento -->
+        <div id="modal-agendamento" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agendar Serviço</h2>
+                
+                <div class="agendamento-info">
+                    <h3 id="servico-selecionado"></h3>
+                    <p class="preco">Preço: R$ <span id="preco-servico"></span></p>
+                </div>
+
+                <form id="form-agendamento">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" class="input-padrao" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" class="input-padrao" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" class="input-padrao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data *</label>
+                        <input type="date" id="data" name="data" class="input-padrao" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário *</label>
+                        <select id="horario" name="horario" class="input-padrao" required>
+                            <option value="">Selecione uma data primeiro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes" class="input-padrao" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secundario" onclick="fecharModal()">Cancelar</button>
+                        <button type="submit" class="enviar">Confirmar Agendamento</button>
+                    </div>
+                </form>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Verificando disponibilidade...</p>
+                </div>
+
+                <div id="mensagem" class="mensagem hidden"></div>
+            </div>
+        </div>
+
         <footer>
-            <img src="logo-branco.png" alt="Logo da Barbearia">
-            <p class="copyright">&copy; Copyright Barbearia - 2023</p>
+            <img src="logo-branco.png" alt="Logo da DIFARIA style shapes">
+            <p class="copyright">&copy; Copyright DIFARIA style shapes - 2023</p>
         </footer>
+
+        <script src="js/agendamento.js"></script>
     </body>
 </html>

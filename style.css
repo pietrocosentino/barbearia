@@ -1,12 +1,32 @@
 header {
-    background: #bbbbbb;
-    padding: 20px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+    padding: 25px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
 }
 
 .caixa {
     position: relative;
     width: 940px;
     margin: 0 auto;
+    z-index: 2;
 }
 
 nav {
@@ -17,20 +37,42 @@ nav {
 
 nav li {
     display: inline;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 20px;
 }
 
 nav a {
     text-transform: uppercase;
-    color: #000000;
+    color: #ffffff;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 18px;
     text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+nav a:hover::before {
+    left: 100%;
 }
 
 nav a:hover {
-    color: #c78c19;
-    text-decoration: underline;
+    color: #f39c12;
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .produtos {
@@ -40,14 +82,19 @@ nav a:hover {
 }
 
 .produtos li:hover {
-    border-color: #c78c19;
+    border-color: #f39c12;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
+
 .produtos li:active {
-    border-color: #088c19;
+    border-color: #e67e22;
+    transform: translateY(-5px);
 }
 
 .produtos li:hover h2 {
     font-size: 34px;
+    color: #f39c12;
 }
 
 .produtos li {
@@ -58,36 +105,84 @@ nav a:hover {
     margin: 0 1.5%;
     padding: 30px 20px;
     box-sizing: border-box;
-    border: 2px solid #000000;
-    border-radius: 10px;
+    border: 3px solid #2c3e50;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.produtos li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(243,156,18,0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.produtos li:hover::before {
+    left: 100%;
 }
 
 .produtos h2 {
     font-size: 30px;
     font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .produto-preco {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
+    color: #e74c3c;
+    margin: 15px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .produto-descricao {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
+    color: #34495e;
+    line-height: 1.4;
 }
 
 footer {
     text-align: center;
-    background: url("bg.jpg");
-    padding: 40px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("bg.jpg") center/cover;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+footer > * {
+    position: relative;
+    z-index: 2;
 }
 
 .copyright {
     color: #ffffff;
-    font-size: 13px;
-    margin: 20px 0 0;
+    font-size: 16px;
+    margin: 25px 0 0;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 main {
@@ -97,55 +192,251 @@ main {
 
 form {
     margin: 40px 0;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.8);
 }
 
 form label, form legend {
     display: block;
     font-size: 20px;
-    margin: 0 0 10px;
+    margin: 0 0 15px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 .input-padrao {
     display: block;
-    margin: 0 0 20px;
-    padding: 10px 25px;
+    margin: 0 0 25px;
+    padding: 15px 25px;
     width: 50%;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.input-padrao:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 0 3px rgba(243,156,18,0.1);
+    transform: translateY(-2px);
+}
+
+.input-padrao:hover {
+    border-color: #adb5bd;
+    transform: translateY(-1px);
 }
 
 .checkbox {
-    margin: 20px 0;
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #f39c12;
+    cursor: pointer;
+}
+
+.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .enviar {
-    width: 40%;
-    padding: 15px 0;
-    background: orange;
+    width: 45%;
+    padding: 18px 0;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
     color: white;
     font-weight: bold;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
-    transition: 1s all;
+    border-radius: 30px;
+    transition: all 0.4s ease;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(243,156,18,0.4);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.enviar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.enviar:hover::before {
+    left: 100%;
 }
 
 .enviar:hover {
-    background: darkorange;
-    transform: scale(1.2);
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(243,156,18,0.6);
+}
+
+.enviar:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(243,156,18,0.4);
 }
 
 table {
     margin: 20px 0 40px;
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 thead {
-    background: #555555;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     font-weight: bold;
 }
 
-td, th {
-    border: 1px solid #000000;
-    padding: 8px 15px;
+thead th {
+    padding: 20px 15px;
     text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+td, th {
+    border: 1px solid #e9ecef;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    background: linear-gradient(135deg, rgba(243,156,18,0.05), rgba(230,126,34,0.05));
+    transform: scale(1.01);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(248,249,250,0.5);
+}
+
+tbody tr:nth-child(even):hover {
+    background: linear-gradient(135deg, rgba(243,156,18,0.1), rgba(230,126,34,0.1));
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .caixa {
+        width: 95%;
+        padding: 0 20px;
+    }
+    
+    nav {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    nav ul {
+        padding: 0;
+    }
+    
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .produtos li {
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+    }
+    
+    .input-padrao {
+        width: 90%;
+    }
+    
+    .enviar {
+        width: 90%;
+    }
+    
+    main {
+        width: 95%;
+    }
+}
+
+/* Animações e transições globais */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Melhorias na tipografia */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Efeitos de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhorias nos links */
+a {
+    transition: all 0.3s ease;
+}
+
+/* Efeitos de foco para acessibilidade */
+*:focus {
+    outline: 2px solid #f39c12;
+    outline-offset: 2px;
+}
+
+/* Melhorias nos botões */
+button, .enviar {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Efeitos de loading */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Melhorias na navegação */
+nav a:active {
+    transform: scale(0.95);
+}
+
+/* Efeitos de hover nos produtos */
+.produtos li:hover img {
+    transform: scale(1.05);
+}
+
+.produtos img {
+    transition: all 0.3s ease;
+    border-radius: 10px;
 }
