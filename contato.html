@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contato - Barbearia</title>
 
         <link rel="stylesheet" href="reset.css">
@@ -28,16 +29,6 @@
 
                 <fieldset>
                     <legend>Como prefere o nosso contato?</legend>
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="input-padrao" required placeholder="seuemail@dominio.com">
-
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx)xxxxx-xxxx">
-
-                    <label for="mensagem">Mensagem</label>
-                    <textarea cols="70" rows="10" id="mensagem" required></textarea>
-
                     <label for="radio-email"><input type="radio" name="contato" 
                     value="email" id="radio-email">Email</label>
 
@@ -48,9 +39,18 @@
                     value="whatsapp" id="radio-whatsapp" checked>WhatsApp</label>
                 </fieldset>
 
+                <label for="email">Email</label>
+                <input type="email" id="email" class="input-padrao" required placeholder="seuemail@dominio.com">
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx)xxxxx-xxxx">
+
+                <label for="mensagem">Mensagem</label>
+                <textarea cols="70" rows="10" id="mensagem" class="input-padrao" required></textarea>
+
                 <fieldset>
                     <legend>Qual horário prefere ser atendido?</legend>
-                    <select>
+                    <select class="input-padrao">
                         <option>Manhã</option>
                         <option>Tarde</option>
                         <option>Noite</option>
@@ -70,11 +70,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Segunda à sabado</td>
+                        <td>Segunda a sábado</td>
                         <td>08:00 às 20:00</td>
                     </tr>
                     <tr>
-                        <td>Domingo, segunda e feriados</td>
+                        <td>Domingos e feriados</td>
                         <td>Fechado</td>
                     </tr>
                 </tbody>
@@ -82,8 +82,8 @@
         </main>
 
         <footer>
-            <img src="logo-branco.png" alt="Logo da barbearia">
-            <p class="copyrigth">&copy; Copyrigth Barbearia - 2023</p>
+            <img src="logo-branco.png" alt="Logo da Barbearia">
+            <p class="copyright">&copy; Copyright Barbearia - 2023</p>
         </footer>
     </body>
 </html>

@@ -13,7 +13,6 @@ nav {
     position: absolute;
     top: 110px;
     right: 0;
-
 }
 
 nav li {
@@ -32,11 +31,10 @@ nav a {
 nav a:hover {
     color: #c78c19;
     text-decoration: underline;
-
 }
 
 .produtos {
-    width: 940;
+    width: 940px;
     margin: 0 auto;
     padding: 50px 0;
 }
@@ -86,7 +84,7 @@ footer {
     padding: 40px 0;
 }
 
-.copyrigth {
+.copyright {
     color: #ffffff;
     font-size: 13px;
     margin: 20px 0 0;
@@ -150,5 +148,4 @@ td, th {
     border: 1px solid #000000;
     padding: 8px 15px;
     text-align: center;
-
 }
