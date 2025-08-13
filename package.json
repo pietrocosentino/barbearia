@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "init-db": "node database/init.js",
     "authorize-google": "node scripts/authorize-google.js",
+    "setup-google": "node scripts/setup-google-calendar.js",
     "test": "node test-api.js"
   },
   "keywords": [

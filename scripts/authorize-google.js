@@ -9,8 +9,8 @@ const SCOPES = [
     'https://www.googleapis.com/auth/calendar.events'
 ];
 
-const CREDENTIALS_PATH = path.join(__dirname, '../config/credentials.json');
-const TOKEN_PATH = path.join(__dirname, '../config/token.json');
+const CREDENTIALS_PATH = path.join(__dirname, '../config/google-credentials.json');
+const TOKEN_PATH = path.join(__dirname, '../config/google-token.json');
 
 // Interface de linha de comando
 const rl = readline.createInterface({

@@ -37,8 +37,8 @@ const GOOGLE_CALENDAR_CONFIG = {
 async function authenticateGoogle() {
     try {
         // Verificar se existe arquivo de credenciais
-        const credentialsPath = path.join(__dirname, 'credentials.json');
-        const tokenPath = path.join(__dirname, 'token.json');
+        const credentialsPath = path.join(__dirname, 'google-credentials.json');
+        const tokenPath = path.join(__dirname, 'google-token.json');
         
         if (!fs.existsSync(credentialsPath)) {
             throw new Error('Arquivo de credenciais não encontrado. Configure o Google Calendar primeiro.');
